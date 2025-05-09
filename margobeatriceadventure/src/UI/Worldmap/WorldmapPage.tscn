@@ -1,0 +1,545 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://src/UI/Commons/Breadcrumbs/Breadcrumb.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Commons/Navigation/NavigationSwitch.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/Commons/Breadcrumbs/BreadcrumbLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Worldmap/Preview.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/Commons/Overlay/Overlay.gd" type="Script" id=5]
+[ext_resource path="res://assets/theme/MainMenu.tres" type="Theme" id=6]
+[ext_resource path="res://src/UI/Worldmap/Level.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/Commons/Button/PreviousPageButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/UI/hud/acorn.png" type="Texture" id=9]
+[ext_resource path="res://assets/UI/hud/gem.png" type="Texture" id=10]
+[ext_resource path="res://assets/UI/hud/carrot.png" type="Texture" id=11]
+[ext_resource path="res://assets/UI/worldmap/Level1_160x90.png" type="Texture" id=12]
+[ext_resource path="res://assets/UI/worldmap/Level2_160x90.png" type="Texture" id=13]
+[ext_resource path="res://src/UI/Worldmap/LevelName.gd" type="Script" id=14]
+[ext_resource path="res://src/UI/Worldmap/WorldmapCollected.gd" type="Script" id=15]
+[ext_resource path="res://assets/UI/worldmap/Level1_27x48.png" type="Texture" id=16]
+[ext_resource path="res://assets/UI/worldmap/Level2_27x48.png" type="Texture" id=17]
+[ext_resource path="res://assets/UI/worldmap/Level3_160x90.png" type="Texture" id=18]
+[ext_resource path="res://assets/UI/worldmap/Level3_27x48.png" type="Texture" id=19]
+[ext_resource path="res://assets/UI/worldmap/Level4_27x48.png" type="Texture" id=20]
+[ext_resource path="res://assets/UI/worldmap/Level4_160x90.png" type="Texture" id=21]
+[ext_resource path="res://assets/UI/worldmap/Level5_27x48.png" type="Texture" id=22]
+[ext_resource path="res://assets/UI/worldmap/Level5_160x90.png" type="Texture" id=23]
+[ext_resource path="res://assets/UI/worldmap/Level6_160x90.png" type="Texture" id=24]
+[ext_resource path="res://assets/UI/worldmap/Level6_27x48.png" type="Texture" id=25]
+[ext_resource path="res://assets/UI/worldmap/Level7_27x48.png" type="Texture" id=26]
+[ext_resource path="res://assets/UI/worldmap/Level7_160x90.png" type="Texture" id=27]
+[ext_resource path="res://assets/UI/worldmap/Level8_160x90.png" type="Texture" id=28]
+[ext_resource path="res://assets/UI/worldmap/Level8_27x48.png" type="Texture" id=29]
+[ext_resource path="res://assets/UI/worldmap/Level10_160x90.png" type="Texture" id=30]
+[ext_resource path="res://assets/UI/worldmap/Level10_27x48.png" type="Texture" id=31]
+[ext_resource path="res://assets/UI/worldmap/Level9_27x48.png" type="Texture" id=32]
+[ext_resource path="res://assets/UI/worldmap/Level9_160x90.png" type="Texture" id=33]
+[ext_resource path="res://assets/UI/worldmap/Level11_27x48.png" type="Texture" id=34]
+[ext_resource path="res://assets/UI/worldmap/Level11_160x90.png" type="Texture" id=35]
+[ext_resource path="res://assets/UI/worldmap/Level12_27x48.png" type="Texture" id=36]
+[ext_resource path="res://assets/UI/worldmap/Level12_160x90.png" type="Texture" id=37]
+[ext_resource path="res://assets/UI/worldmap/Level13_160x90.png" type="Texture" id=38]
+[ext_resource path="res://assets/UI/worldmap/Level13_27x48.png" type="Texture" id=39]
+[ext_resource path="res://assets/UI/worldmap/Level14_27x48.png" type="Texture" id=40]
+[ext_resource path="res://assets/UI/worldmap/Level14_160x90.png" type="Texture" id=41]
+[ext_resource path="res://assets/UI/worldmap/Level15_160x90.png" type="Texture" id=42]
+[ext_resource path="res://assets/UI/worldmap/Level15_27x48.png" type="Texture" id=43]
+[ext_resource path="res://assets/UI/worldmap/Level16_160x90.png" type="Texture" id=44]
+[ext_resource path="res://assets/UI/worldmap/Level16_27x48.png" type="Texture" id=45]
+[ext_resource path="res://assets/UI/worldmap/Level17_160x90.png" type="Texture" id=46]
+[ext_resource path="res://assets/UI/worldmap/Level17_27x48.png" type="Texture" id=47]
+[ext_resource path="res://assets/UI/worldmap/Level18_27x48.png" type="Texture" id=48]
+[ext_resource path="res://assets/UI/worldmap/Level18_160x90.png" type="Texture" id=49]
+[ext_resource path="res://src/UI/Worldmap/LevelContainer.gd" type="Script" id=50]
+[ext_resource path="res://assets/UI/worldmap/Boss_160x90.png" type="Texture" id=51]
+[ext_resource path="res://assets/UI/worldmap/Boss_27x48.png" type="Texture" id=52]
+[ext_resource path="res://src/UI/Worldmap/TimePanel.tscn" type="PackedScene" id=53]
+
+[node name="WorldmapPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+script = ExtResource( 2 )
+default_field_to_focus = NodePath("ScrollContainer/MarginContainer/LevelContainer/Level1/LoadLevelButton")
+
+[node name="Breadcrumb" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 460.0
+margin_bottom = 27.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+breadcrumbs = [ "worldmap.title" ]
+
+[node name="BreachcrumbRoot" parent="Breadcrumb" instance=ExtResource( 3 )]
+margin_right = 165.0
+margin_bottom = 22.0
+
+[node name="LevelName" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -104.0
+margin_right = 40.0
+margin_bottom = -90.0
+grow_horizontal = 2
+text = "level name"
+align = 1
+valign = 1
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preview" parent="." instance=ExtResource( 4 )]
+margin_left = 106.0
+margin_top = 51.0
+margin_right = -214.0
+margin_bottom = -129.0
+
+[node name="TimePanel" parent="." instance=ExtResource( 53 )]
+margin_left = 273.0
+margin_top = 47.0
+margin_right = 374.0
+margin_bottom = 145.0
+
+[node name="CollectablesContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -74.0
+margin_top = 12.0
+margin_right = 74.0
+margin_bottom = 26.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="GemsPercentageContainer" type="HBoxContainer" parent="CollectablesContainer"]
+margin_right = 47.0
+margin_bottom = 14.0
+size_flags_horizontal = 0
+
+[node name="Icon" type="TextureRect" parent="CollectablesContainer/GemsPercentageContainer"]
+margin_right = 11.0
+margin_bottom = 14.0
+texture = ExtResource( 10 )
+
+[node name="WorldmapCollected" type="Label" parent="CollectablesContainer/GemsPercentageContainer"]
+margin_left = 15.0
+margin_top = 1.0
+margin_right = 47.0
+margin_bottom = 13.0
+text = "100%"
+script = ExtResource( 15 )
+signal_to_connect = "worldmap_gems_percentage_changed"
+
+[node name="AcornsPercentageContainer" type="HBoxContainer" parent="CollectablesContainer"]
+margin_left = 51.0
+margin_right = 97.0
+margin_bottom = 14.0
+size_flags_horizontal = 0
+
+[node name="Icon" type="TextureRect" parent="CollectablesContainer/AcornsPercentageContainer"]
+margin_right = 10.0
+margin_bottom = 14.0
+texture = ExtResource( 9 )
+
+[node name="WorldmapCollected" type="Label" parent="CollectablesContainer/AcornsPercentageContainer"]
+margin_left = 14.0
+margin_top = 1.0
+margin_right = 46.0
+margin_bottom = 13.0
+text = "100%"
+script = ExtResource( 15 )
+signal_to_connect = "worldmap_acorns_percentage_changed"
+
+[node name="CarrotsPercentageContainer" type="HBoxContainer" parent="CollectablesContainer"]
+margin_left = 101.0
+margin_right = 148.0
+margin_bottom = 14.0
+size_flags_horizontal = 0
+
+[node name="Icon" type="TextureRect" parent="CollectablesContainer/CarrotsPercentageContainer"]
+margin_right = 11.0
+margin_bottom = 14.0
+texture = ExtResource( 11 )
+
+[node name="WorldmapCollected" type="Label" parent="CollectablesContainer/CarrotsPercentageContainer"]
+margin_left = 15.0
+margin_top = 1.0
+margin_right = 47.0
+margin_bottom = 13.0
+text = "100%"
+script = ExtResource( 15 )
+signal_to_connect = "worldmap_carrots_percentage_changed"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = 26.0
+margin_right = 131.0
+margin_bottom = 86.0
+grow_horizontal = 2
+rect_min_size = Vector2( 266, 60 )
+follow_focus = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+margin_right = 593.0
+margin_bottom = 52.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+
+[node name="LevelContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 589.0
+margin_bottom = 52.0
+script = ExtResource( 50 )
+
+[node name="Level1" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+locked = false
+level_title = "level.level1"
+preview_texture = ExtResource( 12 )
+max_gems = 18
+max_acorns = 7
+max_carrots = 9
+rank_s_time = 55.0
+rank_a_time = 70.0
+rank_b_time = 90.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level1" index="1"]
+texture = ExtResource( 16 )
+
+[node name="LoadLevelButton" parent="ScrollContainer/MarginContainer/LevelContainer/Level1" index="3"]
+focus_mode = 2
+disabled = false
+
+[node name="Lock" parent="ScrollContainer/MarginContainer/LevelContainer/Level1" index="4"]
+visible = false
+
+[node name="Level2" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 31.0
+margin_right = 58.0
+level_title = "level.level2"
+preview_texture = ExtResource( 13 )
+max_gems = 13
+max_acorns = 7
+max_carrots = 14
+rank_s_time = 60.0
+rank_a_time = 90.0
+rank_b_time = 120.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level2" index="1"]
+texture = ExtResource( 17 )
+
+[node name="Level3" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 62.0
+margin_right = 89.0
+level_title = "level.level3"
+preview_texture = ExtResource( 18 )
+max_gems = 10
+max_acorns = 7
+max_carrots = 8
+rank_s_time = 100.0
+rank_a_time = 125.0
+rank_b_time = 180.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level3" index="1"]
+texture = ExtResource( 19 )
+
+[node name="Level4" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 93.0
+margin_right = 120.0
+level_title = "level.level4"
+preview_texture = ExtResource( 21 )
+max_gems = 6
+max_acorns = 7
+max_carrots = 16
+rank_s_time = 60.0
+rank_a_time = 75.0
+rank_b_time = 100.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level4" index="1"]
+texture = ExtResource( 20 )
+
+[node name="Level5" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 124.0
+margin_right = 151.0
+level_title = "level.level5"
+preview_texture = ExtResource( 23 )
+max_gems = 15
+max_acorns = 17
+max_carrots = 7
+rank_s_time = 60.0
+rank_a_time = 90.0
+rank_b_time = 120.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level5" index="1"]
+texture = ExtResource( 22 )
+
+[node name="Level6" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 155.0
+margin_right = 182.0
+level_title = "level.level6"
+preview_texture = ExtResource( 24 )
+max_gems = 18
+max_acorns = 11
+max_carrots = 5
+rank_s_time = 55.0
+rank_a_time = 80.0
+rank_b_time = 95.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level6" index="1"]
+texture = ExtResource( 25 )
+
+[node name="Level7" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 186.0
+margin_right = 213.0
+level_title = "level.level7"
+preview_texture = ExtResource( 27 )
+max_gems = 9
+max_acorns = 6
+max_carrots = 10
+rank_s_time = 60.0
+rank_a_time = 90.0
+rank_b_time = 120.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level7" index="1"]
+texture = ExtResource( 26 )
+
+[node name="Level8" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 217.0
+margin_right = 244.0
+level_title = "level.level8"
+preview_texture = ExtResource( 28 )
+max_gems = 4
+max_acorns = 4
+max_carrots = 4
+rank_s_time = 40.0
+rank_a_time = 60.0
+rank_b_time = 80.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level8" index="1"]
+texture = ExtResource( 29 )
+
+[node name="Level9" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 248.0
+margin_right = 275.0
+level_title = "level.level9"
+preview_texture = ExtResource( 33 )
+max_gems = 14
+max_acorns = 8
+max_carrots = 9
+rank_s_time = 55.0
+rank_a_time = 70.0
+rank_b_time = 85.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level9" index="1"]
+texture = ExtResource( 32 )
+
+[node name="Level10" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 279.0
+margin_right = 306.0
+level_title = "level.level10"
+preview_texture = ExtResource( 30 )
+max_gems = 10
+max_acorns = 9
+max_carrots = 9
+rank_s_time = 60.0
+rank_a_time = 90.0
+rank_b_time = 120.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level10" index="1"]
+texture = ExtResource( 31 )
+
+[node name="Level11" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 310.0
+margin_right = 337.0
+level_title = "level.level11"
+preview_texture = ExtResource( 35 )
+max_gems = 6
+max_acorns = 7
+max_carrots = 5
+rank_s_time = 50.0
+rank_a_time = 75.0
+rank_b_time = 90.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level11" index="1"]
+texture = ExtResource( 34 )
+
+[node name="Level12" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 341.0
+margin_right = 368.0
+level_title = "level.level12"
+preview_texture = ExtResource( 37 )
+max_gems = 6
+max_acorns = 4
+max_carrots = 6
+rank_s_time = 35.0
+rank_a_time = 45.0
+rank_b_time = 60.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level12" index="1"]
+texture = ExtResource( 36 )
+
+[node name="Level13" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 372.0
+margin_right = 399.0
+level_title = "level.level13"
+preview_texture = ExtResource( 38 )
+max_gems = 11
+max_acorns = 10
+max_carrots = 10
+rank_s_time = 50.0
+rank_a_time = 60.0
+rank_b_time = 70.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level13" index="1"]
+texture = ExtResource( 39 )
+
+[node name="Level14" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 403.0
+margin_right = 430.0
+level_title = "level.level14"
+preview_texture = ExtResource( 41 )
+max_gems = 7
+max_acorns = 13
+max_carrots = 5
+rank_s_time = 50.0
+rank_a_time = 80.0
+rank_b_time = 120.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level14" index="1"]
+texture = ExtResource( 40 )
+
+[node name="Level15" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 434.0
+margin_right = 461.0
+level_title = "level.level15"
+preview_texture = ExtResource( 42 )
+max_gems = 11
+max_acorns = 5
+max_carrots = 6
+rank_s_time = 50.0
+rank_a_time = 80.0
+rank_b_time = 110.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level15" index="1"]
+texture = ExtResource( 43 )
+
+[node name="Level16" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 465.0
+margin_right = 492.0
+level_title = "level.level16"
+preview_texture = ExtResource( 44 )
+max_gems = 5
+max_acorns = 12
+max_carrots = 5
+rank_s_time = 50.0
+rank_a_time = 70.0
+rank_b_time = 90.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level16" index="1"]
+texture = ExtResource( 45 )
+
+[node name="Level17" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 496.0
+margin_right = 523.0
+level_title = "level.level17"
+preview_texture = ExtResource( 46 )
+max_gems = 9
+max_acorns = 12
+max_carrots = 5
+rank_s_time = 40.0
+rank_a_time = 60.0
+rank_b_time = 80.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level17" index="1"]
+texture = ExtResource( 47 )
+
+[node name="Level18" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 527.0
+margin_right = 554.0
+level_title = "level.level18"
+preview_texture = ExtResource( 49 )
+max_gems = 12
+max_acorns = 9
+max_carrots = 7
+rank_s_time = 45.0
+rank_a_time = 60.0
+rank_b_time = 75.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Level18" index="1"]
+texture = ExtResource( 48 )
+
+[node name="Boss" parent="ScrollContainer/MarginContainer/LevelContainer" instance=ExtResource( 7 )]
+margin_left = 558.0
+margin_right = 585.0
+level_title = "level.boss"
+preview_texture = ExtResource( 51 )
+max_gems = 12
+max_acorns = 9
+max_carrots = 7
+rank_s_time = 90.0
+rank_a_time = 120.0
+rank_b_time = 180.0
+
+[node name="Preview" parent="ScrollContainer/MarginContainer/LevelContainer/Boss" index="1"]
+texture = ExtResource( 52 )
+
+[node name="Footer" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 225.0
+margin_right = 460.0
+margin_bottom = 255.0
+size_flags_horizontal = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviousPagePage" parent="Footer" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 440.0
+margin_bottom = 30.0
+
+[node name="Overlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.301961 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level1"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level2"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level3"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level4"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level5"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level6"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level7"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level8"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level9"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level10"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level11"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level12"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level13"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level14"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level15"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level16"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level17"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Level18"]
+[editable path="ScrollContainer/MarginContainer/LevelContainer/Boss"]

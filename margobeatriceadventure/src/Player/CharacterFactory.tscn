@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Player/Momentum.gd" type="Script" id=1]
+[ext_resource path="res://src/Player/Fox/SkinFox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Player/Rabbit/SkinRabbit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Player/Squirrel/SkinSquirrel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Player/Fox/FoxData.gd" type="Script" id=5]
+[ext_resource path="res://src/Player/Rabbit/RabbitData.gd" type="Script" id=6]
+[ext_resource path="res://src/Player/CharacterFactory.gd" type="Script" id=7]
+[ext_resource path="res://src/Player/Squirrel/SquirrelData.gd" type="Script" id=8]
+[ext_resource path="res://src/Actor/Effects.gd" type="Script" id=9]
+
+[node name="CharacterFactory" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Momentum" type="Node2D" parent="."]
+script = ExtResource( 1 )
+DURATION = 0.5
+STRENGTH = 0.5
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Fox" type="Node2D" parent="Characters"]
+script = ExtResource( 5 )
+
+[node name="Skin" parent="Characters/Fox" instance=ExtResource( 2 )]
+position = Vector2( 0, -16 )
+
+[node name="Squirrel" type="Node2D" parent="Characters"]
+visible = false
+script = ExtResource( 8 )
+
+[node name="Skin" parent="Characters/Squirrel" instance=ExtResource( 4 )]
+position = Vector2( 1, -19 )
+
+[node name="Rabbit" type="Node2D" parent="Characters"]
+visible = false
+position = Vector2( 0, 2 )
+script = ExtResource( 6 )
+
+[node name="Skin" parent="Characters/Rabbit" instance=ExtResource( 3 )]
+position = Vector2( 0, -18 )
+
+[node name="Effects" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="Effects"]

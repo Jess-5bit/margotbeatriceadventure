@@ -1,0 +1,563 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://src/Actor/Actor.gd"
+}, {
+"base": "Node2D",
+"class": "ActorSkin",
+"language": "GDScript",
+"path": "res://src/Actor/ActorSkin.gd"
+}, {
+"base": "TextureRect",
+"class": "AtlasIcon",
+"language": "GDScript",
+"path": "res://src/UI/Commons/TextureRect/AtlasIcon.gd"
+}, {
+"base": "Node2D",
+"class": "AttackFactory",
+"language": "GDScript",
+"path": "res://src/Libraries/AttackFactory/AttackFactory.gd"
+}, {
+"base": "Node2D",
+"class": "BossSealRoom",
+"language": "GDScript",
+"path": "res://src/Scripts/BossSealRoom.gd"
+}, {
+"base": "Position2D",
+"class": "CameraAnchor",
+"language": "GDScript",
+"path": "res://src/Camera/CameraAnchor.gd"
+}, {
+"base": "Field",
+"class": "CheckboxField",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Fields/CheckboxField.gd"
+}, {
+"base": "Node2D",
+"class": "Checkpoint",
+"language": "GDScript",
+"path": "res://src/Levels/Template/checkpoints/Checkpoint.gd"
+}, {
+"base": "Area2D",
+"class": "DamageSource",
+"language": "GDScript",
+"path": "res://src/Combat/DamageSource/DamageSource.gd"
+}, {
+"base": "DamageSource",
+"class": "DamageSourcePassThrough",
+"language": "GDScript",
+"path": "res://src/Combat/DamageSource/DamageSourcePassThrough.gd"
+}, {
+"base": "Node2D",
+"class": "DialogueController",
+"language": "GDScript",
+"path": "res://src/Dialogues/DialogueController.gd"
+}, {
+"base": "Node2D",
+"class": "DrawingUtils",
+"language": "GDScript",
+"path": "res://src/Autoload/DrawingUtils.gd"
+}, {
+"base": "FieldWithOptions",
+"class": "DropdownField",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Fields/DropDownField.gd"
+}, {
+"base": "Node2D",
+"class": "EndOfLevel",
+"language": "GDScript",
+"path": "res://src/Objects/Interactables/EndOfLevel.gd"
+}, {
+"base": "Actor",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://src/Enemies/Enemy.gd"
+}, {
+"base": "FrustumCulling",
+"class": "EnemyFrustumCulling",
+"language": "GDScript",
+"path": "res://src/Enemies/EnemyFrustumCulling.gd"
+}, {
+"base": "HBoxContainer",
+"class": "Field",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Fields/Field.gd"
+}, {
+"base": "Control",
+"class": "FieldSet",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Fields/FieldSet.gd"
+}, {
+"base": "Field",
+"class": "FieldWithOptions",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Fields/FieldWithOptions.gd"
+}, {
+"base": "Node",
+"class": "Filter",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Filter/Filter.gd"
+}, {
+"base": "Node",
+"class": "Form",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Form/Form.gd"
+}, {
+"base": "Node2D",
+"class": "FrustumCulling",
+"language": "GDScript",
+"path": "res://src/Generics/FrustumCulling.gd"
+}, {
+"base": "TextureRect",
+"class": "GamepadData",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Gamepad/Data/GamepadData.gd"
+}, {
+"base": "HBoxContainer",
+"class": "GamepadMapField",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Gamepad/GamepadMapField.gd"
+}, {
+"base": "Button",
+"class": "GenericButton",
+"language": "GDScript",
+"path": "res://src/UI/Commons/Button/GenericButton.gd"
+}, {
+"base": "FieldWithOptions",
+"class": "HListField",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Fields/HListField.gd"
+}, {
+"base": "Reference",
+"class": "Hit",
+"language": "GDScript",
+"path": "res://src/Combat/Hit.gd"
+}, {
+"base": "Area2D",
+"class": "Hitbox",
+"language": "GDScript",
+"path": "res://src/Combat/Hitbox/Hitbox.gd"
+}, {
+"base": "HBoxContainer",
+"class": "KeyMapField",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Keymap/KeyMapField.gd"
+}, {
+"base": "RayCast2D",
+"class": "Laser",
+"language": "GDScript",
+"path": "res://src/Objects/Traps/Laser.gd"
+}, {
+"base": "Node2D",
+"class": "Momentum",
+"language": "GDScript",
+"path": "res://src/Player/Momentum.gd"
+}, {
+"base": "State",
+"class": "Move",
+"language": "GDScript",
+"path": "res://src/Player/States/Move.gd"
+}, {
+"base": "Button",
+"class": "NavigationButton",
+"language": "GDScript",
+"path": "res://src/UI/Commons/Navigation/NavigationButton.gd"
+}, {
+"base": "Control",
+"class": "NavigationRouter",
+"language": "GDScript",
+"path": "res://src/UI/Commons/Navigation/NavigationRouter.gd"
+}, {
+"base": "Control",
+"class": "NavigationSwitch",
+"language": "GDScript",
+"path": "res://src/UI/Commons/Navigation/NavigationSwitch.gd"
+}, {
+"base": "Form",
+"class": "NewProfileForm",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Form/NewProfileForm.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Npc",
+"language": "GDScript",
+"path": "res://src/NPCs/Npc.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Platform",
+"language": "GDScript",
+"path": "res://src/Objects/Platforms/Platform.gd"
+}, {
+"base": "Actor",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/Player/Player.gd"
+}, {
+"base": "ActorSkin",
+"class": "PlayerSkin",
+"language": "GDScript",
+"path": "res://src/Player/PlayerSkin.gd"
+}, {
+"base": "Button",
+"class": "PreviousPageButton",
+"language": "GDScript",
+"path": "res://src/UI/Commons/Button/PreviousPageButton.gd"
+}, {
+"base": "Form",
+"class": "RebindForm",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Form/BindindForm.gd"
+}, {
+"base": "Node",
+"class": "ScoreContainer",
+"language": "GDScript",
+"path": "res://src/UI/Scoreboard/ScoreContainer.gd"
+}, {
+"base": "Field",
+"class": "SliderField",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Fields/SliderField.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/Libraries/StateMachine/State.gd"
+}, {
+"base": "Node2D",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://src/Libraries/StateMachine/StateMachine.gd"
+}, {
+"base": "Node2D",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://src/Actor/Stats.gd"
+}, {
+"base": "Label",
+"class": "TimeFormat",
+"language": "GDScript",
+"path": "res://src/UI/Commons/Time/TimeFormat.gd"
+}, {
+"base": "Control",
+"class": "TutorialPopUp",
+"language": "GDScript",
+"path": "res://src/UI/Tutorials/TutorialPopUp.gd"
+}, {
+"base": "Node",
+"class": "Updater",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Updater/Updater.gd"
+}, {
+"base": "Line2D",
+"class": "Waypoints",
+"language": "GDScript",
+"path": "res://src/Waypoints/Waypoints.gd"
+} ]
+_global_script_class_icons={
+"Actor": "",
+"ActorSkin": "",
+"AtlasIcon": "",
+"AttackFactory": "res://assets/icons/attack_factory.svg",
+"BossSealRoom": "",
+"CameraAnchor": "",
+"CheckboxField": "res://assets/icons/check-square.svg",
+"Checkpoint": "",
+"DamageSource": "",
+"DamageSourcePassThrough": "",
+"DialogueController": "",
+"DrawingUtils": "",
+"DropdownField": "",
+"EndOfLevel": "",
+"Enemy": "",
+"EnemyFrustumCulling": "",
+"Field": "res://assets/icons/field.svg",
+"FieldSet": "res://assets/icons/fieldset.svg",
+"FieldWithOptions": "res://assets/icons/field.svg",
+"Filter": "",
+"Form": "res://assets/icons/form.svg",
+"FrustumCulling": "",
+"GamepadData": "",
+"GamepadMapField": "res://assets/icons/gamepad.svg",
+"GenericButton": "",
+"HListField": "",
+"Hit": "",
+"Hitbox": "",
+"KeyMapField": "res://assets/icons/keyboard.svg",
+"Laser": "",
+"Momentum": "",
+"Move": "",
+"NavigationButton": "res://assets/icons/navigation.svg",
+"NavigationRouter": "",
+"NavigationSwitch": "",
+"NewProfileForm": "res://assets/icons/form.svg",
+"Npc": "",
+"Platform": "",
+"Player": "",
+"PlayerSkin": "",
+"PreviousPageButton": "",
+"RebindForm": "",
+"ScoreContainer": "",
+"SliderField": "res://assets/icons/percent.svg",
+"State": "res://assets/icons/state.svg",
+"StateMachine": "res://assets/icons/state_machine.svg",
+"Stats": "",
+"TimeFormat": "",
+"TutorialPopUp": "",
+"Updater": "",
+"Waypoints": ""
+}
+
+[application]
+
+config/name="Margot-Béatrice Adventure"
+run/main_scene="res://src/UI/MainMenu.tscn"
+config/icon="res://icon.png"
+config/macos_native_icon="res://icon.icns"
+config/windows_native_icon="res://icon.ico"
+
+[autoload]
+
+Project="*res://src/Autoload/Project.gd"
+Events="*res://src/Autoload/Events.gd"
+EngineSettings="*res://src/Autoload/EngineSettings.gd"
+InputManager="*res://src/Autoload/InputManager.gd"
+Config="*res://src/Autoload/Config.gd"
+Menu="*res://src/Autoload/Menu.gd"
+AsyncLoading="*res://src/Autoload/AsyncLoading.gd"
+Game="*res://src/Autoload/Game.gd"
+Character="*res://src/Autoload/Character.gd"
+SceneManager="*res://src/Autoload/SceneManager.gd"
+Serialize="*res://src/Autoload/Serialize.gd"
+Layer="*res://src/Autoload/Layer.gd"
+MusicPlayer="*res://src/Autoload/MusicPlayer.tscn"
+
+[debug]
+
+gdscript/warnings/shadowed_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/unused_signal=false
+
+[display]
+
+window/size/width=480
+window/size/height=270
+window/size/test_width=1920
+window/size/test_height=1080
+window/dpi/allow_hidpi=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[game]
+
+debug=false
+game_version="1.0.0"
+debug.sidepanel=false
+debug.screenshot=true
+release.screenshot=true
+debug.astart_highlight=false
+debug.camera_anchor=false
+debug.spawn=false
+debug.commands=false
+debug.skip_cinematic=false
+debug.skip_irish_shot=false
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+ogg_vorbis={
+"loop": false
+}
+mp3={
+"loop": false
+}
+
+[input]
+
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_unbind={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777224,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_cancel_binding={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_reset_to_default={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+toggle_debug_menu={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":77,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_spawn={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_die={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_restart_level={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_slow_time={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_accelerate_time={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_reset_time={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_free_camera={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_free_camera_zoom_in={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":true,"command":true,"pressed":false,"scancode":61,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_free_camera_zoom_out={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":true,"command":true,"pressed":false,"scancode":45,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_screenshot={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_debug_panel={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777255,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Worlds"
+2d_physics/layer_3="PassThrough"
+2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Npcs"
+2d_physics/layer_6="Object"
+2d_physics/layer_7="HitboxPlayer"
+2d_physics/layer_8="DamageSourcePlayer"
+2d_physics/layer_9="EndOfLevel"
+2d_physics/layer_10="DamageSourceEnemy"
+2d_physics/layer_11="HitboxEnemies"
+2d_physics/layer_12="Platforms"
+2d_physics/layer_13="DamageSourceTraps"
+
+[locale]
+
+test="en"
+locale_filter=[ 0, [ "fr" ] ]
+translations=PoolStringArray( "res://i18n/audio.en.translation", "res://i18n/audio.fr.translation", "res://i18n/cfg.en.translation", "res://i18n/cfg.fr.translation", "res://i18n/commons.en.translation", "res://i18n/commons.fr.translation", "res://i18n/display.en.translation", "res://i18n/display.fr.translation", "res://i18n/gamepad.en.translation", "res://i18n/gamepad.fr.translation", "res://i18n/input.en.translation", "res://i18n/input.fr.translation", "res://i18n/mouse.en.translation", "res://i18n/mouse.fr.translation", "res://i18n/rebind.en.translation", "res://i18n/rebind.fr.translation", "res://i18n/accessibility.en.translation", "res://i18n/accessibility.fr.translation", "res://i18n/keyboard.en.translation", "res://i18n/keyboard.fr.translation", "res://i18n/profile.en.translation", "res://i18n/profile.fr.translation", "res://i18n/worldmap.en.translation", "res://i18n/worldmap.fr.translation", "res://i18n/level.en.translation", "res://i18n/level.fr.translation", "res://i18n/scoreboard.en.translation", "res://i18n/scoreboard.fr.translation", "res://i18n/collectable.en.translation", "res://i18n/collectable.fr.translation", "res://i18n/tutorial.en.translation", "res://i18n/tutorial.fr.translation", "res://i18n/in-game.en.translation", "res://i18n/in-game.fr.translation", "res://i18n/credits.en.translation", "res://i18n/credits.fr.translation", "res://i18n/bootscreen.en.translation", "res://i18n/bootscreen.fr.translation" )
+
+[logging]
+
+file_logging/enable_file_logging=true
+
+[rendering]
+
+quality/driver/fallback_to_gles2=true
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_environment="res://default_env.tres"
+quality/2d/use_pixel_snap=false
